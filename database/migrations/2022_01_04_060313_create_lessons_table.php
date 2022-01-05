@@ -17,6 +17,7 @@ class CreateLessonsTable extends Migration
             $table->id();
 
             $table->string('name');
+            $table->text('description');
             $table->unsignedBigInteger('section_id');
             $table->foreign("section_id")->references("id")->on("sections")->onDelete("cascade");
 

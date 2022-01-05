@@ -19,7 +19,8 @@ class CreateResourcesTable extends Migration
             $table->string('name');
             $table->string('type')->nullable();
 
-
+            $table->unsignedBigInteger('lesson_id')->nullable();
+            $table->foreign("lesson_id")->references("id")->on("lessons")->onDelete("cascade");
 
             $table->timestamps();
         });

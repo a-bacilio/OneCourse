@@ -15,6 +15,7 @@ class LessonFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(),
+            'description' => $this->faker->paragraph(),
         ];
     }
 }

@@ -15,6 +15,7 @@ class ResourceFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(),
+            'type' => $this->faker->randomElement(['video','image']),
         ];
     }
 }
