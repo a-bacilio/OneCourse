@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLessonsTable extends Migration
+class CreateOnlineVideosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateLessonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lessons', function (Blueprint $table) {
+        Schema::create('online_videos', function (Blueprint $table) {
             $table->id();
 
             $table->string('name');
-            $table->unsignedBigInteger('section_id');
-            $table->foreign("section_id")->references("id")->on("sections")->onDelete("cascade");
+            $table->string('url')->nullable();
+            $table->string('iframe')->nullable();
+
+            $table->unsignedBigInteger('resource_id')->nullable();
+            $table->foreign("resource_id")->references("id")->on("resources")->onDelete("cascade");
 
 
             $table->timestamps();
@@ -32,6 +35,6 @@ class CreateLessonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lessons');
+        Schema::dropIfExists('online_videos');
     }
 }

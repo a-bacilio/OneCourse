@@ -17,4 +17,9 @@ class Lesson extends Model
         return $this->belongsToMany('App\Models\Section');
     }
 
+    public function resources(){
+        return $this->hasMany('App\Models\Resources');
+    }
+
+
 }

@@ -22,7 +22,9 @@ class CreateProfilesTable extends Migration
             $table->text('civil_status');
             $table->text('ocupppation');
             $table->text('birth_place');
-            $table->text('residence');
+            $table->string('residence_state');
+            $table->string('residence_province');
+            $table->string('residence_district');
             $table->boolean('covid_family');
             $table->boolean('caretaker_you');
             $table->boolean('caretaker_pro');
