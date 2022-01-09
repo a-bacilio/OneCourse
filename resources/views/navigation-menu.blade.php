@@ -1,41 +1,54 @@
 @php
 $nav_links = [
     [
-        'name' => 'Dashboard',
-        'route' => route('dashboard'),
-        'active' => request()->routeIs('dashboard'),
-    ],
-    [
-        'name' => 'Prueba',
+        'name' => 'Presentacion',
         'route' => '#',
         'active' => false,
+    ],
+    [
+        'name' => 'Contenidos',
+        'route' => '#',
+        'active' => false,
+    ],
+    [
+        'name' => 'Referencias',
+        'route' => '#',
+        'active' => false,
+    ],
+    [
+        'name' => 'Creaditos',
+        'route' => '#',
+        'active' => false,
+    ],
+    [
+        'name' => 'FAQ',
+        'route' => '#',
+        'active' => false,
+    ],
+    [
+        'name' => 'Panel',
+        'route' => route('dashboard'),
+        'active' => request()->routeIs('dashboard'),
     ],
 ];
 @endphp
 
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="text-white border-b border-gray-100 bg-sky-800">
 
     <!-- Primary Navigation Menu -->
-    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="flex flex-col px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
                     <a href="{{ route('home') }}">
-                        <x-jet-application-mark class="block w-auto h-9" />
+                        <img class="h-12" src="{{asset('img/logo/logo_blanco.png')}}">
                     </a>
                 </div>
-
-                <!-- Navigation Links -->
-                @foreach ($nav_links as $nav_link)
-                    <div class="hidden space-x-8 shadow sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link href="{{ $nav_link['route'] }}" active="{{ $nav_link['active'] }}" >
-                            {{ $nav_link['name'] }}
-                        </x-jet-nav-link>
-                    </div>
-                @endforeach
-
             </div>
+
+
+
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
 
@@ -98,8 +111,12 @@ $nav_links = [
                             </x-slot>
                         </x-jet-dropdown>
                     @else
-                        <a href="{{route('login')}}" classs="">Login</a>
-                        <a href="{{route('register')}}" classs="">Register</a>
+                        <a href="{{ route('login') }}"  class="mr-6">
+                            Ingresar
+                        </a>
+                        <a href="{{ route('register') }}" class="mr-6">
+                            Registrarse
+                        </a>
                     @endauth
                 </div>
             </div>
@@ -124,7 +141,18 @@ $nav_links = [
 
 
         </div>
+        <div class = "flex">
+            <!-- Navigation Links -->
+            @foreach ($nav_links as $nav_link)
+                 <div class="hidden space-x-2 shadow sm:-my-px sm:ml-2 sm:flex">
+                     <x-jet-nav-link href="{{ $nav_link['route'] }}" active="{{ $nav_link['active'] }}" >
+                         {{ $nav_link['name'] }}
+                     </x-jet-nav-link>
+                 </div>
+            @endforeach
+        </div>
     </div>
+
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
@@ -159,8 +187,14 @@ $nav_links = [
                     </div>
                 </div>
             @else
-                <a href="{{route('login')}}" classs="">Login</a>
-                <a href="{{route('register')}}" classs="">Register</a>
+                <x-jet-responsive-nav-link href="{{route('login')}}"
+                :active="false">
+                    Ingresar
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{route('register')}}"
+                :active="false">
+                    Registrarse
+                </x-jet-responsive-nav-link>
             @endauth
 
             <div class="mt-3 space-y-1">

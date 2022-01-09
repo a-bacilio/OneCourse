@@ -30,6 +30,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'gender',
+        'birth_date',
+        'education_level',
+        'civil_status',
+        'occupation',
+        'residence_state',
+        'residence_province',
+        'residence_district',
+        'covid_family',
+        'caretaker_you',
+        'caretaker_pro',
     ];
 
 
