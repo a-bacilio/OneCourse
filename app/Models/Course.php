@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
+    protected $withCount = ['sections','lessons'];
 
     protected $guarded = ['id'];
 
@@ -20,7 +21,8 @@ class Course extends Model
     }
 
     public function lessons(){
-        return $this->hasManyTrhrough('App\Model\Lesson', 'App\Model\Section');
+        return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');
     }
+
 
 }

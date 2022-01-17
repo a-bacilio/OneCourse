@@ -66,6 +66,9 @@ class CreateNewUser implements CreatesNewUsers
             'covid_family'=>$input['covid_family'],
             'caretaker_you'=>$input['caretaker_you'],
             'caretaker_pro'=>$input['caretaker_pro'],
+            'lesson_now'=>0,
+            'lesson_max'=>0,
+            'usability'=>0,
             'password' => Hash::make($input['password']),
         ]);
     }

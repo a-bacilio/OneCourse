@@ -2,13 +2,13 @@
 $nav_links = [
     [
         'name' => 'Presentacion',
-        'route' => '#',
-        'active' => false,
+        'route' => route('home'),
+        'active' => request()->routeIs('home'),
     ],
     [
         'name' => 'Contenidos',
-        'route' => '#',
-        'active' => false,
+        'route' => route('content.index'),
+        'active' => request()->routeIs('content.index'),
     ],
     [
         'name' => 'Referencias',
@@ -16,7 +16,7 @@ $nav_links = [
         'active' => false,
     ],
     [
-        'name' => 'Creaditos',
+        'name' => 'Créditos',
         'route' => '#',
         'active' => false,
     ],
@@ -27,8 +27,8 @@ $nav_links = [
     ],
     [
         'name' => 'Panel',
-        'route' => route('dashboard'),
-        'active' => request()->routeIs('dashboard'),
+        'route' => route('admin.index'),
+        'active' => request()->routeIs('admin.index'),
     ],
 ];
 @endphp

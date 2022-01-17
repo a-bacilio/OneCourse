@@ -13,12 +13,17 @@ class Lesson extends Model
         return $this->belongsTo('App\Models\Section');
     }
 
+
+    public function course(){
+        return $this->belongsTo('App\Models\Course');
+    }
+
     public function users(){
-        return $this->belongsToMany('App\Models\Section');
+        return $this->belongsToMany('App\Models\User');
     }
 
     public function resources(){
-        return $this->hasMany('App\Models\Resources');
+        return $this->hasMany('App\Models\Resource');
     }
 
 

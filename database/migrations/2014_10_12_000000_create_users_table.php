@@ -34,6 +34,10 @@ class CreateUsersTable extends Migration
             $table->string('covid_family')->nullable();
             $table->string('caretaker_you')->nullable();
             $table->string('caretaker_pro')->nullable();
+            $table->integer('lesson_now')->default(0);
+            $table->integer('lesson_max')->default(0);
+            $table->integer('usability')->default(0);
+
 
             $table->timestamps();
         });

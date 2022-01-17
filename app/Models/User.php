@@ -41,6 +41,9 @@ class User extends Authenticatable
         'covid_family',
         'caretaker_you',
         'caretaker_pro',
+        'lesson_now',
+        'lesson_max',
+        'usability',
     ];
 
 
