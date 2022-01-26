@@ -57,7 +57,7 @@ Route::get('course/edit',[CourseController::class,'edit'])->name('admin.course.e
 Route::post('course/update',[CourseController::class,'update'])->name('admin.course.update');
 
 
-/**Course */
+/**Information */
 Route::get('information/edit',[InformationController::class,'edit'])->name('admin.information.edit');
 Route::post('information/update',[InformationController::class,'update'])->name('admin.information.update');
 

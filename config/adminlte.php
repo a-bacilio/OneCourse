@@ -326,7 +326,7 @@ return [
         ['header' => 'Contenido'],
         [
             'text' => 'Configuración',
-            'route'  => 'admin.user.index',
+            'route'  => 'admin.information.edit',
             'icon_color' => 'white',
             'icon' => "fas fa-cog",
         ],
