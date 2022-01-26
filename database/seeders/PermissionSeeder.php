@@ -15,22 +15,7 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         Permission::create([
-            'name'=>'Crear lecciones',
-        ]);
-        Permission::create([
-            'name'=>'Leer lecciones',
-        ]);
-        Permission::create([
-            'name'=>'Actualizar lecciones',
-        ]);
-        Permission::create([
-            'name'=>'Eliminar lecciones',
-        ]);
-        Permission::create([
-            'name'=>'Ver Dashboard',
-        ]);
-        Permission::create([
-            'name'=>'Editar usuarios',
+            'name'=>'Manage',
         ]);
     }
 }

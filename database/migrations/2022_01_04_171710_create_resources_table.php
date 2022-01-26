@@ -17,10 +17,11 @@ class CreateResourcesTable extends Migration
             $table->id();
 
             $table->string('name');
+
             $table->string('type')->nullable();
 
             $table->unsignedBigInteger('lesson_id')->nullable();
-            $table->foreign("lesson_id")->references("id")->on("lessons")->onDelete("cascade");
+            $table->foreign("lesson_id")->references("id")->on("lessons")->onDelete("set null");
 
             $table->timestamps();
         });

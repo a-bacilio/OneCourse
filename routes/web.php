@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\Credit;
+use App\Models\Information;
+use App\Models\Question;
+use App\Models\Reference;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -15,8 +19,27 @@ use Illuminate\Support\Facades\Validator;
 |
 */
 
+Route::get('/credits', function () {
+    $information=Information::find(1);
+    $credits = Credit::all();
+    return view('credits',compact('information','credits'));
+})->name('credits');
+
+Route::get('/faq', function () {
+    $information=Information::find(1);
+    $questions = Question::all();
+    return view('questions',compact('information','questions'));
+})->name('questions');
+
+Route::get('/references', function () {
+    $information=Information::find(1);
+    $references=Reference::all();
+    return view('references',compact('information','references'));
+})->name('references');
+
 Route::get('/', function () {
-    return view('welcome');
+    $information=Information::find(1);
+    return view('welcome',compact('information'));
 })->name('home');
 
 

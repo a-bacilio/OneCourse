@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Waqa-ADMIN',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => 'ADMIN',
+    'logo_img' => 'img/logo/white_logo.png',
+    'logo_img_class' => 'brand-image',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'WaqaAdmin',
 
     /*
     |--------------------------------------------------------------------------
@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -223,7 +223,7 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Menu-Configuration
     |
     */
-
+    /*
     'menu' => [
         // Navbar items:
         [
@@ -317,6 +317,144 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
+        ],
+    ],*/
+
+
+    'menu' => [
+        // Sidebar items:
+        ['header' => 'Contenido'],
+        [
+            'text' => 'Configuración',
+            'route'  => 'admin.user.index',
+            'icon_color' => 'white',
+            'icon' => "fas fa-cog",
+        ],
+        [
+            'text'    => 'Referencias',
+            'icon'    => 'fas fa-tag',
+            'icon_color' => 'red',
+            'submenu' =>[
+                [
+                    'text' => 'Ver referencias',
+                    'route'  => 'admin.reference.index',
+                    'icon' => "far fa-eye",
+                ],
+                [
+                    'text' => 'Crear referencia',
+                    'route'  => 'admin.reference.create',
+                    'icon' => "fas fa-plus",
+                ],
+            ]
+        ],
+        [
+            'text'    => 'Preguntas Frecuentes',
+            'icon'    => 'fas fa-question',
+            'icon_color' => 'teal',
+            'submenu' =>[
+                [
+                    'text' => 'Ver preguntas',
+                    'route'  => 'admin.question.index',
+                    'icon' => "far fa-eye",
+                ],
+                [
+                    'text' => 'Crear pregunta',
+                    'route'  => 'admin.question.create',
+                    'icon' => "fas fa-plus",
+                ],
+            ]
+        ],
+        [
+            'text'    => 'Créditos',
+            'icon'    => 'fas fa-sun',
+            'icon_color' => 'yellow',
+            'submenu' =>[
+                [
+                    'text' => 'Ver Creditos',
+                    'route'  => 'admin.credit.index',
+                    'icon' => "far fa-eye",
+                ],
+                [
+                    'text' => 'Crear créditos',
+                    'route'  => 'admin.credit.create',
+                    'icon' => "fas fa-plus",
+                ],
+            ]
+        ],
+        [
+            'text' => 'Ver Data',
+            'route'  => 'admin.data.users',
+            'icon_color' => 'fuchsia',
+            'icon' => "fas fa-database",
+        ],
+        [
+            'text' => 'Ver Usuarios',
+            'route'  => 'admin.user.index',
+            'icon_color' => 'white',
+            'icon' => "fas fa-user",
+        ],
+        [
+            'text' => 'Ordernar Secciones',
+            'route'  => 'admin.course.edit',
+            'icon_color' => 'blue',
+            'icon' => "fas fa-puzzle-piece",
+        ],
+        ['header' => 'Componentes'],
+        [
+            'text'    => 'Secciones',
+            'icon'    => 'fas fa-puzzle-piece',
+            'icon_color' => 'red',
+            'submenu' =>[
+                [
+                    'text' => 'Ver Secciones',
+                    'route'  => 'admin.section.index',
+                    'icon' => "far fa-eye",
+                ],
+                [
+                    'text' => 'Crear Sección',
+                    'route'  => 'admin.section.create',
+                    'icon' => "fas fa-plus",
+                ],
+            ]
+        ],
+        [
+            'text'    => 'Lecciones',
+            'icon'    => 'fas fa-book',
+            'icon_color' => 'blue',
+            'submenu' =>[
+                [
+                    'text' => 'Ver Lecciones',
+                    'route'  => 'admin.lesson.index',
+                    'icon' => "far fa-eye",
+                ],
+                [
+                    'text' => 'Crear Leccion',
+                    'route'  => 'admin.lesson.create',
+                    'icon' => "fas fa-plus",
+                ],
+            ]
+        ],
+        [
+            'text'    => 'Recursos',
+            'icon'    => 'fas fa-fw fa-share',
+            'icon_color' => 'green',
+            'submenu' =>[
+                [
+                    'text' => 'Ver recursos',
+                    'route'  => 'admin.resource.index',
+                    'icon' => 'far fa-eye',
+                ],
+                [
+                    'text' => 'Añadir imagen',
+                    'route'  => 'admin.resource.createimage',
+                    'icon' => 'fas fa-image',
+                ],
+                [
+                    'text' => 'Añadir video',
+                    'route'  => 'admin.resource.createvideo',
+                    'icon' => 'fab fa-youtube',
+                ],
+            ]
         ],
     ],
 
@@ -472,5 +610,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

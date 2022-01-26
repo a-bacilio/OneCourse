@@ -7,10 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model
 {
+
+    protected $fillable = [
+        'name',
+        'type',
+        'order',
+        'lesson_id',
+    ];
+
     use HasFactory;
 
-    public function lessons(){
-        return $this->belongsToMany('App\Models\Lesson');
+    public function lesson(){
+        return $this->belongsTo('App\Models\Lesson');
     }
 
     public function image(){

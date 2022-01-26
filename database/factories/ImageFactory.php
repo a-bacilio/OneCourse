@@ -16,7 +16,7 @@ class ImageFactory extends Factory
         return [
             'name'=> $this->faker->sentence(),
             //'url'=> 'cursos/'. $this->faker->image('public/storage/cursos', 640, 480, null, false),
-            'url'=> 'cursos/placeholder.png',
+            'url'=> 'storage/cursos/placeholder.png',
         ];
     }
 }

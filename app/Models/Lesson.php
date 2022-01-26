@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lesson extends Model
 {
+    protected $withCount = ['resources'];
+    protected $fillable = [
+        'name',
+        'description',
+        'order',
+        'section_id',
+    ];
     use HasFactory;
 
     public function section(){

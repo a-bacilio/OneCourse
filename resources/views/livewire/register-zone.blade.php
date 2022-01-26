@@ -2,7 +2,7 @@
     <div class="w-full mx-auto max-w-7xl" x-show="open">
         <x-jet-authentication-card class="">
             <x-slot name="logo">
-                <img src="{{asset('img/logo/logo_negro.png')}}">
+                <img src="{{asset('img/logo/black_logo.png')}}">
             </x-slot>
 
             <h1 class="w-full text-3xl font-extrabold text-center">Lea el consentimiento y complete los datos</h1>

@@ -4,31 +4,37 @@ $nav_links = [
         'name' => 'Presentacion',
         'route' => route('home'),
         'active' => request()->routeIs('home'),
+        'permission'=>'guest',
     ],
     [
         'name' => 'Contenidos',
         'route' => route('content.index'),
         'active' => request()->routeIs('content.index'),
+        'permission'=>'auth',
     ],
     [
         'name' => 'Referencias',
-        'route' => '#',
-        'active' => false,
+        'route' => route('references'),
+        'active' => request()->routeIs('references'),
+        'permission'=>'auth',
     ],
     [
         'name' => 'Créditos',
-        'route' => '#',
-        'active' => false,
+        'route' => route('credits'),
+        'active' => request()->routeIs('credits'),
+        'permission'=>'guest',
     ],
     [
         'name' => 'FAQ',
-        'route' => '#',
-        'active' => false,
+        'route' => route('questions'),
+        'active' => request()->routeIs('questions'),
+        'permission'=>'guest',
     ],
     [
         'name' => 'Panel',
         'route' => route('admin.index'),
         'active' => request()->routeIs('admin.index'),
+        'permission'=>'admin',
     ],
 ];
 @endphp
@@ -42,7 +48,7 @@ $nav_links = [
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
                     <a href="{{ route('home') }}">
-                        <img class="h-12" src="{{asset('img/logo/logo_blanco.png')}}">
+                        <img class="h-12" src="{{asset('img/logo/white_logo.png')}}">
                     </a>
                 </div>
             </div>
@@ -144,11 +150,29 @@ $nav_links = [
         <div class = "flex">
             <!-- Navigation Links -->
             @foreach ($nav_links as $nav_link)
-                 <div class="hidden space-x-2 shadow sm:-my-px sm:ml-2 sm:flex">
-                     <x-jet-nav-link href="{{ $nav_link['route'] }}" active="{{ $nav_link['active'] }}" >
-                         {{ $nav_link['name'] }}
-                     </x-jet-nav-link>
-                 </div>
+                @if($nav_link["permission"]=="auth")
+                    @auth
+                        <div class="hidden space-x-2 shadow sm:-my-px sm:ml-2 sm:flex">
+                            <x-jet-nav-link href="{{ $nav_link['route'] }}" active="{{ $nav_link['active'] }}" >
+                                {{ $nav_link['name'] }}
+                            </x-jet-nav-link>
+                        </div>
+                    @endauth
+                @elseif($nav_link["permission"]=="admin")
+                    @can('Manage')
+                        <div class="hidden space-x-2 shadow sm:-my-px sm:ml-2 sm:flex">
+                            <x-jet-nav-link href="{{ $nav_link['route'] }}" active="{{ $nav_link['active'] }}" >
+                                {{ $nav_link['name'] }}
+                            </x-jet-nav-link>
+                        </div>
+                    @endcan
+                @else
+                    <div class="hidden space-x-2 shadow sm:-my-px sm:ml-2 sm:flex">
+                        <x-jet-nav-link href="{{ $nav_link['route'] }}" active="{{ $nav_link['active'] }}" >
+                            {{ $nav_link['name'] }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
             @endforeach
         </div>
     </div>

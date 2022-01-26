@@ -9,6 +9,12 @@ class Image extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'url',
+        'resource_id'
+    ];
+
     public function resource(){
         return $this->belongsTo('App\Models\Resources');
     }

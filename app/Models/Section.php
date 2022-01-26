@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Section extends Model
 {
+    protected $fillable = [
+        'name',
+        'description',
+        'course_id',
+    ];
     use HasFactory;
     protected $withCount = ['lessons'];
 

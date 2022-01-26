@@ -11,4 +11,5 @@ Route::post('next',[ContentController::class,'updatespecific'])->middleware(['au
 Route::get('evaluation',[ContentController::class,'showevaluation'])->middleware(['auth','web'])->name('content.showevaluation');
 Route::post('evaluation',[ContentController::class,'registerevaluation'])->middleware(['auth','web'])->name('content.registerevaluation');
 Route::get('certification',[ContentController::class,'showcertification'])->middleware(['auth','web'])->name('content.showcertification');
+Route::get('generatecertification',[ContentController::class,'generatecertification'])->middleware(['auth','web'])->name('content.generatecertification');
 
