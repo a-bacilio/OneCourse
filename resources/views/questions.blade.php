@@ -9,7 +9,7 @@
                 @forelse ($questions as $key => $question)
 
                     <h2 class="text-xl font-bold">
-                        {{ $key + 1 }}. {{ $question->question }}
+                        {{ $question->order }}. {{ $question->question }}
                     </h2>
                     <h3 class="w-full p-3 mb-6 text-lg rounded-lg bg-sky-200">
                         {{ $question->answer }}

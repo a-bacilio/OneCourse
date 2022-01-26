@@ -21,19 +21,19 @@ use Illuminate\Support\Facades\Validator;
 
 Route::get('/credits', function () {
     $information=Information::find(1);
-    $credits = Credit::all();
+    $credits = Credit::all()->sortBy('order');
     return view('credits',compact('information','credits'));
 })->name('credits');
 
 Route::get('/faq', function () {
     $information=Information::find(1);
-    $questions = Question::all();
+    $questions = Question::all()->sortBy('order');
     return view('questions',compact('information','questions'));
 })->name('questions');
 
 Route::get('/references', function () {
     $information=Information::find(1);
-    $references=Reference::all();
+    $references=Reference::all()->sortBy('order');
     return view('references',compact('information','references'));
 })->name('references');
 
