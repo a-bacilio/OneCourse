@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form method="POST" action="{{route('admin.resource.storeimage')}}">
+        <form method="POST" action="{{route('admin.resource.storevideo')}}">
             @csrf
             <div class="form-group">
               <label for="name">Nombre</label>
