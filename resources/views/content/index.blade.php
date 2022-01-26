@@ -10,10 +10,8 @@
             {{-- Contenido --}}
             <article class="w-full col-span-1 p-2 bg-white rounded-lg sm:col-span-3">
                 <h3 class="my-4 text-2xl font-bold">
-                    Seccion
-                    {{ $lesson_now->section->id }}.
+                    {{ $lesson_now->section->name }}.
                     <br>
-                    L{{ Auth::user()->lesson_now + 1 }}.
                     {{ $lesson_now->name }}
                     <h3>
                         <p>
@@ -44,7 +42,7 @@
                         @endif
 
                         <div class="flex flex-row justify-between">
-                            @if ($lesson_now->id > 1)
+                            @if ($position > 1)
                                 <form class="" method="POST" action={{ route('content.update') }}>
                                     @csrf
                                     <input value="previous" name="buttonaction" hidden>
@@ -52,7 +50,7 @@
                                         type="submit">Anterior</button>
                                 </form>
                             @endif
-                            @if ($lesson_now->id < $course->lessons_count)
+                            @if ($position < $course->lessons_count)
                                 <form class="" method="POST" action={{ route('content.update') }}>
                                     @csrf
                                     <input value="next" name="buttonaction" hidden>
@@ -73,7 +71,7 @@
                 @forelse ($sections as $key => $section)
                     <div class="my-2" x-data="{ open: false }">
                         <h3 class="p-2 font-bold text-white bg-blue-600 rounded-lg" x-on:click="open = ! open">
-                            {{ $key + 1 }}. {{ $section->name }} <i class="fas fa-caret-down"></i></h3>
+                            {{ $section->name }} <i class="fas fa-caret-down"></i></h3>
                         <div class="w-full" x-show="open">
                             @if ($section->lessons_count == 0)
                                 <div class="w-full p-2 mt-2 border rounded-lg">
@@ -87,8 +85,7 @@
                                             method="POST" action={{ route('content.updatespecific') }}>
                                             @csrf
                                             <input value={{ $key }} name="lesson" hidden>
-                                            <button class="text-left" type="submit">L.{{ $key + 1 }} -
-                                                {{ $lesson->name }}</button>
+                                            <button class="text-left" type="submit">{{ $lesson->name }}</button>
                                         </form>
                                     @endif
                                 @endforeach

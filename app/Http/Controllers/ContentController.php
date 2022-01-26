@@ -63,8 +63,9 @@ class ContentController extends Controller
                 }
             }
             $lesson_now = $lessons[Auth::user()->lesson_now];
+            $position = Auth::user()->lesson_now+1;
 
-            return view('content.index', compact('course', 'sections', 'lessons', 'resources', 'lesson_now'));
+            return view('content.index', compact('course', 'sections', 'lessons', 'resources', 'lesson_now','position'));
         }else{
             $user->update(['lesson_now'=>0,'lesson_max'=>0]);
             return view('content.index', compact('course'));
